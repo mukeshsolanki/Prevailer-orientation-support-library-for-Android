@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Prevailer</string>
+    <string name="hint_username">Username</string>
+    <string name="hint_password">Password</string>
+    <string name="login">Login</string>
 </resources>
