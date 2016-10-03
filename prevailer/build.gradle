@@ -1,5 +1,30 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
 
+ext {
+  bintrayRepo = 'maven'
+  bintrayName = 'Prevailer'
+
+  publishedGroupId = 'com.mukesh'
+  libraryName = 'Prevailer'
+  artifact = 'Prevailer'
+
+  libraryDescription =
+      'A library that preserves objects instances during orientation changes.'
+
+  siteUrl = 'https://github.com/mukeshsolanki/Prevailer-orientation-support-library-for-Android'
+  gitUrl = 'git@github.com:mukeshsolanki/Prevailer-orientation-support-library-for-Android.git'
+
+  libraryVersion = '1.0.0'
+
+  developerId = 'mukeshsolanki'
+  developerName = 'Mukesh Solanki'
+  developerEmail = 'themukeshsolanki@gmail.com'
+
+  licenseName = 'MIT License'
+  licenseUrl = 'https://github.com/mukeshsolanki/Prevailer-orientation-support-library-for-Android/blob/master/LICENSE'
+  allLicenses = ["MIT License"]
+}
 android {
   compileSdkVersion 24
   buildToolsVersion "24.0.3"
@@ -8,7 +33,7 @@ android {
     minSdkVersion 11
     targetSdkVersion 24
     versionCode 1
-    versionName "1.0"
+    versionName "1.0.0"
   }
   buildTypes {
     release {
@@ -22,3 +47,6 @@ dependencies {
   compile fileTree(dir: 'libs', include: ['*.jar'])
   compile 'com.android.support:appcompat-v7:24.2.1'
 }
+
+apply from: 'https://raw.githubusercontent.com/mukeshsolanki/library-distribution-tasks/master/install-task.gradle'
+apply from: 'https://raw.githubusercontent.com/mukeshsolanki/library-distribution-tasks/master/bintray-upload-tasks.gradle'
