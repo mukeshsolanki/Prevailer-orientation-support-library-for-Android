@@ -1,4 +1,6 @@
 # Prevailer
+[ ![PayPal](https://img.shields.io/badge/paypal-donate-yellow.svg) ](https://www.paypal.me/mukeshsolanki)
+
 Prevailer is a simple android library that helps in preserving object instances across orientation change in android and is JAVA 8 and MVP ready.
 
 ## How to use
