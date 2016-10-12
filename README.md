@@ -1,14 +1,33 @@
-# Prevailer
-[ ![PayPal](https://img.shields.io/badge/paypal-donate-yellow.svg) ](https://www.paypal.me/mukeshsolanki)
-
-Prevailer is a simple android library that helps in preserving object instances across orientation change in android and is JAVA 8 and MVP ready.
+<h1 align="center">Prevailer - Orientation Support Android</h1>
+<p align="center">
+  <a href="https://android-arsenal.com/api?level=11"> <img src="https://img.shields.io/badge/API-11%2B-blue.svg?style=flat" /></a>
+  <a href="https://jitpack.io/#mukeshsolanki/Prevailer-orientation-support-library-for-Android"> <img src="https://jitpack.io/v/mukeshsolanki/Prevailer-orientation-support-library-for-Android.svg" /></a>
+  <a href="https://android-arsenal.com/details/1/3802"> <img src="https://img.shields.io/badge/Android%20Arsenal-Photo%20Filter-brightgreen.svg?style=flat" /></a>
+  <a href="https://travis-ci.org/mukeshsolanki/Prevailer-orientation-support-library-for-Android"> <img src="https://travis-ci.org/mukeshsolanki/Prevailer-orientation-support-library-for-Android.svg?branch=master" /></a>
+  <a href="https://www.paypal.me/mukeshsolanki"> <img src="https://img.shields.io/badge/paypal-donate-yellow.svg" /></a>
+  <br /><br />Prevailer is a simple android library that helps in preserving object instances across orientation change in android and is JAVA 8 and MVP ready.
+</p>
 
 ## How to use
+
+Integrating the project is simple a refined all you need to do is follow the below steps
+
+* Add the JitPack repository to your build file. Add it in your root build.gradle at the end of repositories:
+
+```java
+allprojects {
+  repositories {
+    ...
+    maven { url "https://jitpack.io" }
+  }
+}
+```
 * Add the dependency
-```gradle
-	dependencies {
-	  compile 'com.mukesh:prevailer:1.0.0'
-	}
+
+```java
+dependencies {
+        compile 'com.github.mukeshsolanki:Prevailer-orientation-support-library-for-Android:1.0.1'
+}
 ```
 
 * In your Activity / Fragment onCreate call
