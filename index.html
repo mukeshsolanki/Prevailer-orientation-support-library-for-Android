@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Prevailer Orientation Support (Android) by mukeshsolanki</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Prevailer Orientation Support (Android)</h1>
+      <h2 class="project-tagline">Prevailer is a simple android library that helps in preserving object instances across orientation change in android and is JAVA 8 and MVP ready.</h2>
+      <a href="https://github.com/mukeshsolanki/Prevailer-orientation-support-library-for-Android" class="btn">View on GitHub</a>
+      <a href="https://github.com/mukeshsolanki/Prevailer-orientation-support-library-for-Android/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/mukeshsolanki/Prevailer-orientation-support-library-for-Android/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1 align="center">
+<a id="prevailer---orientation-support-android" class="anchor" href="#prevailer---orientation-support-android" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Prevailer - Orientation Support Android</h1>
+
+<p align="center">
+  <a href="https://android-arsenal.com/api?level=11"> <img src="https://img.shields.io/badge/API-11%2B-blue.svg?style=flat"></a>
+  <a href="https://jitpack.io/#mukeshsolanki/Prevailer-orientation-support-library-for-Android"> <img src="https://jitpack.io/v/mukeshsolanki/Prevailer-orientation-support-library-for-Android.svg"></a>
+  <a href="https://android-arsenal.com/details/1/3802"> <img src="https://img.shields.io/badge/Android%20Arsenal-Photo%20Filter-brightgreen.svg?style=flat"></a>
+  <a href="https://travis-ci.org/mukeshsolanki/Prevailer-orientation-support-library-for-Android"> <img src="https://travis-ci.org/mukeshsolanki/Prevailer-orientation-support-library-for-Android.svg?branch=master"></a>
+  <a href="https://www.paypal.me/mukeshsolanki"> <img src="https://img.shields.io/badge/paypal-donate-yellow.svg"></a>
+  <br><br>Prevailer is a simple android library that helps in preserving object instances across orientation change in android and is JAVA 8 and MVP ready.
+</p>
+
+<h2>
+<a id="how-to-use" class="anchor" href="#how-to-use" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to use</h2>
+
+<p>Integrating the project is simple a refined all you need to do is follow the below steps</p>
+
+<ul>
+<li>Add the JitPack repository to your build file. Add it in your root build.gradle at the end of repositories:</li>
+</ul>
+
+<div class="highlight highlight-source-java"><pre>allprojects {
+  repositories {
+    <span class="pl-c1">...</span>
+    maven { url <span class="pl-s"><span class="pl-pds">"</span>https://jitpack.io<span class="pl-pds">"</span></span> }
+  }
+}</pre></div>
+
+<ul>
+<li>Add the dependency</li>
+</ul>
+
+<div class="highlight highlight-source-java"><pre>dependencies {
+        compile <span class="pl-s"><span class="pl-pds">'</span>com.github.mukeshsolanki:Prevailer-orientation-support-library-for-Android:1.0.1<span class="pl-pds">'</span></span>
+}</pre></div>
+
+<ul>
+<li>In your Activity / Fragment onCreate call</li>
+</ul>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-smi">Prevailer</span><span class="pl-k">.</span>init(
+        <span class="pl-v">this</span>, <span class="pl-c">// activity instance</span>
+        <span class="pl-c1">23</span>, <span class="pl-c">// unique id of loader used</span>
+        <span class="pl-k">new</span> <span class="pl-k">PrevailerFactory&lt;<span class="pl-smi">ObjectToBePreserved</span>&gt;</span>() { <span class="pl-c">// factory for the instance that should be preserved</span>
+            <span class="pl-k">@Override</span>
+            <span class="pl-k">public</span> <span class="pl-smi">ObjectToBePreserved</span> <span class="pl-en">create</span>() {
+                <span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-smi">MyTypeToBePreserved</span>();
+            }
+        },
+        <span class="pl-k">new</span> <span class="pl-smi">Prevailer</span>.<span class="pl-k">OnInstanceReloadedAction&lt;<span class="pl-smi">ObjectToBePreserved</span>&gt;</span>() {
+            <span class="pl-k">@Override</span>
+            <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">performAction</span>(<span class="pl-smi">MyTypeToBePreserved</span> <span class="pl-v">instance</span>) {
+          <span class="pl-c">// do what needs to be done when reloaded</span>
+            }
+        },
+        <span class="pl-k">new</span> <span class="pl-smi">Prevailer</span>.<span class="pl-smi">OnInstanceDestroyedAction</span>() {
+            <span class="pl-k">@Override</span>
+            <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">performAction</span>() {
+          <span class="pl-c">// do what needs to be done when destroyed</span>
+            }
+        }
+);</pre></div>
+
+<ul>
+<li>Use with JAVA 8</li>
+</ul>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-smi">Prevailer</span><span class="pl-k">.</span>init(<span class="pl-v">this</span>, <span class="pl-c1">23</span>,
+                (<span class="pl-k">PrevailerFactory&lt;<span class="pl-smi">MyTypeToBePreserved</span>&gt;</span>) () <span class="pl-k">-</span><span class="pl-k">&gt;</span> <span class="pl-k">new</span> <span class="pl-smi">ObjectToBePreserved</span>(),
+                (<span class="pl-smi">Prevailer</span><span class="pl-k">.</span><span class="pl-k">OnInstanceReloadedAction&lt;<span class="pl-smi">ObjectToBePreserved</span>&gt;</span>) instance <span class="pl-k">-</span><span class="pl-k">&gt;</span> {
+                    <span class="pl-c">// do what needs to be done when reloaded</span>
+                },
+                (<span class="pl-smi">Prevailer</span><span class="pl-k">.</span><span class="pl-smi">OnInstanceDestroyedAction</span>) () <span class="pl-k">-</span><span class="pl-k">&gt;</span> {
+                    <span class="pl-c">// do what needs to be done when destroyed</span>
+                }
+);</pre></div>
+
+<h2>
+<a id="why-do-we-need-prevailer" class="anchor" href="#why-do-we-need-prevailer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Why do we need Prevailer</h2>
+
+<p>The need for prevailer has been around from a very long time the developers in the android community have been fighting this issue from a really long time.
+Prevailer works with MVP approach making development easy in case where the presenters had to be maintained or kept alive when the orientation changed.</p>
+
+<h2>
+<a id="how-does-it-work" class="anchor" href="#how-does-it-work" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How does it work</h2>
+
+<p>Prevailer uses Android Loader API under the hood. On Android platform, Loaders framework provides API for asynchronous data loading in Activity or Fragment.
+However, Loaders has special property of preserving instance of the handled object when it's reloaded.
+Prevailer benefits from that to provide simple way of caching (preserving) instances of objects that mustn't be destroyed during orientation changes.
+Preserved instances are destroyed when the activity holding them is  abandoned and no longer used.</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/mukeshsolanki/Prevailer-orientation-support-library-for-Android">Prevailer Orientation Support (Android)</a> is maintained by <a href="https://github.com/mukeshsolanki">mukeshsolanki</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
