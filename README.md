@@ -26,7 +26,7 @@ allprojects {
 
 ```java
 dependencies {
-        compile 'com.github.mukeshsolanki:Prevailer-orientation-support-library-for-Android:1.0.1'
+        compile 'com.github.mukeshsolanki:Prevailer-orientation-support-library-for-Android:1.0.2'
 }
 ```
 
